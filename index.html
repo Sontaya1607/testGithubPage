@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>WeightConverter</title>
+</head>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+    }
+    .section {
+        padding: 1em;
+    }
+</style>
+<body>
+    <section class="hero is-bold is-info is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title has-text-dark">
+                    Weight Converter
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section has-background-grey-darker">
+        <div class="field has-addons has-text-centered">
+            <div class="control is-expanded">
+                <input class="input is-primary is-large" type="number" id="kgInput" placeholder="Enter Kilograms...">
+            </div>
+        </div>
+        <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+                <button class="button is-primary is-large" id="btn1">Go</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="output">
+        <section class="section has-background-grey-darker">
+            <div class="card">
+                <div class="card-header has-background-success">
+                    <p class="card-header-title">
+                        Pounds:
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div class="content" id="ibsOutput"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section has-background-grey-darker">
+            <div class="card">
+                <div class="card-header has-background-warning">
+                    <p class="card-header-title">
+                        Ounces:
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div class="content" id="ocOutput"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section has-background-grey-darker">
+            <div class="card">
+                <div class="card-header has-background-danger">
+                    <p class="card-header-title">
+                        Grams:
+                    </p>
+                </div>
+                <div class="card-content">
+                    <div class="content" id="gramsOutput"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const kgInput = document.querySelector("#kgInput");
+
+        kgInput.addEventListener("input", function(e) {
+            let kgs = e.target.value;
+            document.querySelector("#btn1").addEventListener("click", function(e) {
+                document.querySelector("#ibsOutput").innerHTML = (kgs * 2.20462).toFixed(2);
+                document.querySelector("#ocOutput").innerHTML = (kgs * 35.274).toFixed(2);
+                document.querySelector("#gramsOutput").innerHTML = (kgs * 1000).toFixed(0);
+            });
+        });
+    </script>
+</body>
+</html>
